@@ -22,7 +22,7 @@ class App extends React.Component {
         this.loadBanksFromServer();
     }
 
-    // Load students from database
+    // Load banks from database
     loadBanksFromServer() {
         fetch('http://localhost:8080/api/banks',
             {credentials: 'same-origin'})
@@ -33,7 +33,7 @@ class App extends React.Component {
                 });
             });
     }
-    // Delete student
+    // Delete bank
     deleteBank(bank) {
         fetch (bank._links.self.href,
             { method: 'DELETE',
@@ -50,7 +50,7 @@ class App extends React.Component {
             .catch( err => console.error(err))
     }
 
-    // Create new student
+    // Create new bank
     createBank(bank) {
         fetch('http://localhost:8080/api/banks',
             {   method: 'POST',
@@ -66,7 +66,7 @@ class App extends React.Component {
             .catch( err => console.error(err))
     }
 
-    // Update student
+    // Update bank
     updateBank(bank) {
         fetch(bank.link,
             {   method: 'PUT',
